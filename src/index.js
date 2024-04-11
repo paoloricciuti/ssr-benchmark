@@ -2,7 +2,7 @@ import { Bench } from "tinybench";
 import { IncomingMessage, ServerResponse } from "./http.js";
 import { buildRemixHandler } from "./remix.js";
 import { buildNextHandler } from "./next.js";
-import { buildSveltekitHandler } from "./svelte.js";
+import { buildSveltekitHandler, buildSveltekitv5Handler } from "./svelte.js";
 import http from "node:http";
 
 export async function run(handler) {
@@ -33,6 +33,7 @@ const handlers = [
   { name: "remix", handler: await buildRemixHandler() },
   { name: "next", handler: await buildNextHandler() },
   { name: "sveltekit", handler: await buildSveltekitHandler() },
+  { name: "sveltekit-svelte-v5", handler: await buildSveltekitv5Handler() },
 ];
 
 for (let handler of handlers) {
